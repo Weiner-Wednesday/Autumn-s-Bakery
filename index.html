@@ -15,7 +15,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:Arial,sans-serif;ba
   height:100dvh;
   min-height:100vh;
   overflow:hidden;
-  background:#8b4b21 url("assets/bakery_background.png") center center/100% 100% no-repeat;
+  background:#8b4b21 url("bakery_background.png") center center/100% 100% no-repeat;
 }
 
 #game::before{
@@ -219,6 +219,7 @@ button.selected{outline:3px solid #ffdf61;background:linear-gradient(#d68a37,#7a
 <body>
 
 <audio id="bgMusic" loop preload="auto">
+  <source src="Lollipop.m4a" type="audio/mp4">
   <source src="music/Lollipop.m4a" type="audio/mp4">
 </audio>
 
@@ -241,8 +242,8 @@ button.selected{outline:3px solid #ffdf61;background:linear-gradient(#d68a37,#7a
   </div>
 
   <div id="cakeArea">
-    <img id="pedestal" class="asset" src="assets/cake_pedastal.png">
-    <img id="cake" class="asset" src="assets/vanilla_cake.png">
+    <img id="pedestal" class="asset" src="cake_pedastal.png">
+    <img id="cake" class="asset" src="vanilla_cake.png">
   </div>
 
   <div id="bottomPanel">
@@ -426,7 +427,7 @@ function chooseCake(file,name,btn){
   if(!roundActive)return;
   buzz();
   clearMessage();
-  cake.src="assets/"+file;
+  cake.src=file;
   cake.style.display="block";
   cakeChosen=true;
   chosenCake=name;
@@ -442,7 +443,7 @@ function addFrosting(file,name,btn){
   clearMessage();
   chosenFrostings.push(name);
   const layer=document.createElement("img");
-  layer.src="assets/"+file;
+  layer.src=file;
   layer.className="frostingLayer";
   const count=document.querySelectorAll(".frostingLayer").length;
   layer.style.transform=`translateX(-50%) scale(${Math.max(.88,1-count*.03)})`;
@@ -461,11 +462,11 @@ function addTopping(file,name,styleClass,btn){
   clearMessage();
   chosenToppings.push(name);
   const top=document.createElement("img");
-  top.src="assets/"+file;
+  top.src=file;
   top.className=`toppingLayer ${styleClass}`;
   const count=document.querySelectorAll(".toppingLayer").length;
   top.style.zIndex=8+count;
-  top.onerror=()=>{top.remove();showMessage("That topping image is missing from the assets folder.")};
+  top.onerror=()=>{top.remove();showMessage("That topping image is missing from the game folder.")};
   cakeArea.appendChild(top);
   btn.classList.add("selected");
   openPanel("actionPanel",document.querySelectorAll(".tabBtn")[3]);
@@ -524,7 +525,7 @@ function clearToppings(){
 
 function resetCurrentCake(showMessageFlag=true){
   cake.style.display="none";
-  cake.src="assets/vanilla_cake.png";
+  cake.src="vanilla_cake.png";
   cakeChosen=false;
   chosenCake="";
   chosenFrostings=[];
