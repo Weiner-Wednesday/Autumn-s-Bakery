@@ -95,19 +95,25 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:Arial,sans-serif;ba
 }
 
 #pedestal{width:min(70vw,620px);bottom:0;z-index:1}
-#cake{width:min(39vw,340px);bottom:126px;display:none;z-index:2}
+#cake{width:min(39vw,340px);bottom:168px;display:none;z-index:2}
 
-.frostingLayer{width:min(50vw,440px);bottom:116px;z-index:3}
+.frostingLayer{width:min(50vw,440px);bottom:158px;z-index:3}
 .toppingLayer{z-index:8}
 
-.ringTop{width:min(26vw,235px);bottom:198px}
-.flatTop{width:min(30vw,270px);bottom:206px}
+.ringTop{
+  width:min(38vw,340px);
+  bottom:214px;
+  transform:translateX(-50%) scaleY(.42);
+  transform-origin:center center;
+}
+.flatTop{width:min(30vw,270px);bottom:238px}
 
 
-.centerTop{width:min(25vw,225px);bottom:210px}
-.whipTop{width:min(15vw,130px);bottom:230px}
-.smallTop{width:min(12vw,95px);bottom:222px}
-.mediumTop{width:min(20vw,170px);bottom:218px}
+.centerTop{width:min(25vw,225px);bottom:242px}
+.whipTop{width:min(24vw,220px);bottom:287px}
+.smallTop{width:min(18vw,150px);bottom:287px}
+.mediumTop{width:min(28vw,250px);bottom:287px}
+.waferTop{width:min(46vw,420px);bottom:237px}
 
 #bottomPanel{
   position:absolute;
@@ -190,16 +196,22 @@ button.selected{outline:3px solid #ffdf61;background:linear-gradient(#d68a37,#7a
   #orderBox{top:calc(135px + env(safe-area-inset-top));padding:8px 10px}
   #cakeArea{top:43%;width:100vw;height:47vh}
   #pedestal{width:96vw;bottom:0}
-  #cake{width:56vw;bottom:92px}
-  .frostingLayer{width:68vw;bottom:86px}
-  .ringTop{width:40vw;bottom:148px}
-  .flatTop{width:45vw;bottom:153px}
+  #cake{width:56vw;bottom:126px}
+  .frostingLayer{width:68vw;bottom:120px}
+  .ringTop{
+    width:58vw;
+    bottom:142px;
+    transform:translateX(-50%) scaleY(.42);
+    transform-origin:center center;
+  }
+  .flatTop{width:45vw;bottom:169px}
 
 
-  .centerTop{width:40vw;bottom:153px}
-  .whipTop{width:28vw;bottom:164px}
-  .smallTop{width:20vw;bottom:164px}
-  .mediumTop{width:34vw;bottom:160px}
+  .centerTop{width:40vw;bottom:169px}
+  .whipTop{width:42vw;bottom:206px}
+  .smallTop{width:30vw;bottom:206px}
+  .mediumTop{width:46vw;bottom:206px}
+  .waferTop{width:72vw;bottom:156px}
   #bottomPanel{
     bottom:calc(70px + env(safe-area-inset-bottom));
     padding:8px;
@@ -289,7 +301,7 @@ button.selected{outline:3px solid #ffdf61;background:linear-gradient(#d68a37,#7a
       <button onclick="addTopping('single_strawberry.png','Single Strawberry','smallTop',this)">Single Strawberry</button>
       <button onclick="addTopping('three_strawberries.png','3 Strawberries','mediumTop',this)">3 Strawberries</button>
       <button onclick="addTopping('wafer_crumble.png','Wafer Center','centerTop',this)">Wafer Center</button>
-      <button onclick="addTopping('wafers.png','Wafers','smallTop',this)">Wafers</button>
+      <button onclick="addTopping('wafers.png','Wafers','waferTop',this)">Wafers</button>
       <button onclick="addTopping('whip_cream.png','Whip Cream','whipTop',this)">Whip Cream</button>
     </div>
 
